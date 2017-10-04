@@ -1,0 +1,2 @@
+class SueldosController < ApplicationController
+end

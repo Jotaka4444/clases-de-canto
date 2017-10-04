@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: clases-de-canto_development
+  database: escuela
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

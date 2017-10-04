@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2017-10-03
+  monto: 1.5
+
+two:
+  fecha: 2017-10-03
+  monto: 1.5
