@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003173643) do
+ActiveRecord::Schema.define(version: 20171004024259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171003173643) do
     t.string "estado_pago"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "curso_id"
   end
 
   create_table "cursos", force: :cascade do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20171003173643) do
     t.integer "sala"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profesor_id"
   end
 
   create_table "pagos", force: :cascade do |t|
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 20171003173643) do
     t.float "monto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "alumno_id"
   end
 
   create_table "profesores", force: :cascade do |t|
@@ -63,6 +66,11 @@ ActiveRecord::Schema.define(version: 20171003173643) do
     t.float "monto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profesor_id"
   end
 
+  add_foreign_key "alumnos", "cursos"
+  add_foreign_key "cursos", "profesores", column: "profesor_id"
+  add_foreign_key "pagos", "alumnos"
+  add_foreign_key "sueldos", "profesores", column: "profesor_id"
 end
