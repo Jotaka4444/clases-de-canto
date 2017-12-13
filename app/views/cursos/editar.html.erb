@@ -1,0 +1,36 @@
+<h1>Editar Curso</h1>
+
+<%= form_for :curso, :url => { :action => :update, :id => @curso.id },
+:method => :put do |f| %>
+  <% if @curso.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@curso.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @curso.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </p>
+
+  <p>
+    <%= f.label :horario %><br>
+    <%= f.text_field :horario %>
+  </p>
+
+    <p>
+      <%= f.label :sala %><br>
+      <%= f.text_field :sala %>
+    </p>
+
+  <p>
+    <%= f.submit "Guardar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', :action => :index %>

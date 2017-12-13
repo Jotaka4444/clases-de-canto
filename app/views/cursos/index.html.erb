@@ -1,0 +1,29 @@
+<h1>Cursos</h1>
+
+<h2>Listado de cursos</h2>
+
+<th><%= link_to 'Inicio',welcome_path %></th><br>
+<% @cursos.each do |actual| %>
+<td><%= actual.id %></td>
+<td><%= actual.nombre %></td>
+<td><%= actual.horario %></td>
+<td><%= actual.sala %></td><br>
+<% if usuario_signed_in? %>
+<td><%= link_to 'Mostrar',{:action => :show,
+  :id =>actual.id}%></td>
+  <td><%= link_to 'Editar',{:action => :editar,
+    :id =>actual.id}%></td>
+<td><%= link_to 'Eliminar',{:action => :eliminar,
+  :id =>actual.id},
+  :method => :delete ,
+  :data =>{:confirm => 'seguro?'}%></td><br>
+  <%else%>
+  <td><%= link_to 'Mostrar',{:action => :show,
+    :id =>actual.id}%></td>
+  <%end%>
+
+  <% if usuario_signed_in? %>
+  <td><%= link_to 'Nuevo Curso ',cursos_nuevo_path%></td><br>
+
+  <%end%>
+<%end%>

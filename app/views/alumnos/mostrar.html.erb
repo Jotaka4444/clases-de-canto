@@ -1,0 +1,40 @@
+<p>
+	<strong>Rut:</strong>
+	<%= @alumno.rut %>
+</p>
+<p>
+	<strong>Nombres:</strong>
+	<%= @alumno.nombres %>
+</p>
+<p>
+	<strong>Apellidos:</strong>
+	<%= @alumno.apellidos %>
+</p>
+<p>
+	<strong>Teléfono:</strong>
+	<%= @alumno.telefono %>
+</p>
+<p>
+	<strong>Correo:</strong>
+	<%= @alumno.correo %>
+</p>
+<p>
+	<strong>Fecha de nacimiento:</strong>
+	<%= @alumno.fecha_nacimiento %>
+</p>
+<p>
+	<strong>Dirección:</strong>
+	<%= @alumno.direccion %>
+</p>
+<p>
+	<strong>Clasificación vocal:</strong>
+	<%= @alumno.clasificacion_vocal %>
+</p>
+<p>
+	<strong>Estado de pago:</strong>
+	<%= @alumno.estado_pago %>
+</p>
+
+<%= link_to 'Editar', editar_alumno_path(@alumno) %> |
+<%= link_to 'Borrar', @alumno, method: :delete, data: { confirm: '¿Está seguro?' } %> |
+<%= link_to 'Atrás', alumnos_todos_path %>

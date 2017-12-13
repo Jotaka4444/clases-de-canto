@@ -1,0 +1,61 @@
+<%= form_for (@alumno) do |f| %>
+
+	<% if @alumno.errors.any? %>
+		<div id = "error_explanation">
+			<% if @alumno.errors.count == 1 %>
+				<h2><%= @alumno.errors.count %> error: </h2>
+				<h2> Este alumno no puede ser guardado por: </h2>
+			<%else%>
+				<h2><%= @alumno.errors.count %> errores: </h2>
+				<h2> Este alumno no puede ser guardado por: </h2>
+			<%end%>
+			<ul>
+				<% @alumno.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<%end%>
+
+	<div class = "field">
+		<%= f.label :rut, "Rut" %><br>
+		<%= f.text_field :rut %>
+	</div>
+	<div class = "field">
+		<%= f.label :nombres, "Nombres" %><br>
+		<%= f.text_field :nombres %>
+	</div>
+	<div class = "field">
+		<%= f.label :apellidos, "Apellidos" %><br>
+		<%= f.text_field :apellidos %>
+	</div>
+	<div class = "field">
+		<%= f.label :telefono, "Teléfono" %><br>
+		<%= f.text_field :telefono %>
+	</div>
+	<div class = "field">
+		<%= f.label :correo, "Correo" %><br>
+		<%= f.text_field :correo %>
+	</div>
+	<div class = "field">
+		<%= f.label :fecha_nacimiento, "Fecha de nacimiento" %><br>
+		<%= f.text_field :fecha_nacimiento %>
+	</div>
+	<div class = "field">
+		<%= f.label :direccion, "Dirección" %><br>
+		<%= f.text_field :direccion %>
+	</div>
+	<div class = "field">
+		<%= f.label :clasificacion_vocal, "Clasificación vocal" %><br>
+		<%= f.text_field :clasificacion_vocal %>
+	</div>
+	<div class = "field">
+		<%= f.label :estado_pago, "Estado de pago" %><br>
+		<%= f.text_field :estado_pago %>
+	</div>
+
+	<div class = "actions">
+		<%= f.submit "Guardar" %>
+	</div>
+	
+<%end%>

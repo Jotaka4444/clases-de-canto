@@ -1,0 +1,6 @@
+<%= form_for(@pago) do |f|%>
+<%=f.text_field :monto , placeholder:"monto"%>
+<%=date = Date.today%>
+<%=f.text_field :fecha , placeholder:"fecha"%>
+<%=f.submit "Guardar"%>
+<%end%>

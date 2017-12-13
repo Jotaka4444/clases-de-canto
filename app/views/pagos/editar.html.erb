@@ -1,0 +1,31 @@
+<h1>Editar pago</h1>
+
+<%= form_for :pago, :url => { :action => :update, :id => @pago.id },
+:method => :put do |f| %>
+  <% if @pago.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@pago.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @pago.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :monto %><br>
+    <%= f.text_field :monto %>
+  </p>
+
+  <p>
+    <%= f.label :fecha %><br>
+    <%= f.text_field :fecha %>
+  </p>
+
+  <p>
+    <%= f.submit "Guardar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', :action => :index %>

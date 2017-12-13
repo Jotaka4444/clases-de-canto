@@ -1,0 +1,43 @@
+<h1>Lista de Alumnos</h1>
+<th><%= link_to 'Inicio',welcome_path %></th><br>
+<table>
+	<thead>
+		<tr>
+			<th>Rut</th>
+			<th>Nombres</th>
+			<th>Apellidos</th>
+			<th>Teléfono</th>
+			<th>Correo</th>
+			<th>Fecha de nacimiento</th>
+			<th>Dirección</th>
+			<th>Clasificación vocal</th>
+			<th>Estado de pago</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @alumnos.each do |actual| %>
+			<tr>
+				<td><%= actual.rut %></td>
+				<td><%= actual.nombres %></td>
+				<td><%= actual.apellidos %></td>
+				<td><%= actual.telefono %></td>
+				<td><%= actual.correo %></td>
+				<td><%= actual.fecha_nacimiento %></td>
+				<td><%= actual.direccion %></td>
+				<td><%= actual.clasificacion_vocal %></td>
+				<td><%= actual.estado_pago %></td>
+				<% if usuario_signed_in? %>
+				<td><%= link_to 'Mostrar', alumno_path(actual) %></td>
+				<td><%= link_to 'Editar', editar_alumno_path(actual) %></td>
+				<td><%= link_to 'Borrar', actual, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+				<% else %>
+				<% end %>
+			</tr>
+		<%end%>
+	</tbody>
+</table>
+
+<br>
+<%= link_to 'Nuevo Alumno', nuevo_alumno_path %>
